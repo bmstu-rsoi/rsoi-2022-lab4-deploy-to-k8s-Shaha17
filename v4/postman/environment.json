@@ -4,7 +4,7 @@
 	"values": [
 		{
 			"key": "baseUrl",
-			"value": "",
+			"value": "http://gateway.shahzod-rsoi.ru",
 			"enabled": true
 		}
 	],

@@ -1,0 +1,19 @@
+﻿{
+  "profiles": {
+    "LibrarySystem.RatingSystem": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "launchUrl": "swagger",
+      "applicationUrl": "http://+:8050",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DB_HOST": "localhost",
+        "DB_PORT": "5432",
+        "DATABASE": "ratings",
+        "USERNAME": "postgres",
+        "PASSWORD": "postgres"
+      }
+    }
+  }
+}

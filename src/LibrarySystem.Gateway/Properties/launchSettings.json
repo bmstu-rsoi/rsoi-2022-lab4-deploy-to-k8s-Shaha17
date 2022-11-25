@@ -1,0 +1,17 @@
+﻿{
+  "profiles": {
+    "LibrarySystem.Gateway": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "launchUrl": "swagger",
+      "applicationUrl": "http://+:8080",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "RATINGS_HOST":"localhost:8050",
+        "LIBRARY_HOST":"localhost:8060",
+        "RESERVATIONS_HOST":"localhost:8070"
+      }
+    }
+  }
+}

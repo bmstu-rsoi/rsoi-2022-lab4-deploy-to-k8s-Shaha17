@@ -1,0 +1,19 @@
+﻿{
+  "profiles": {
+    "LibrarySystem.LibrarySystem": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "launchUrl": "swagger",
+      "applicationUrl": "http://+:8060",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DB_HOST": "localhost",
+        "DB_PORT": "5432",
+        "DATABASE": "libraries",
+        "USERNAME": "postgres",
+        "PASSWORD": "postgres"
+      }
+    }
+  }
+}

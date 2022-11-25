@@ -1,0 +1,74 @@
+version: "3"
+services:
+  postgres:
+    image: library/postgres:13
+    container_name: postgres
+    restart: on-failure
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./postgres/:/docker-entrypoint-initdb.d/
+    ports:
+      - "5432:5432"
+  
+  # TODO добавить сервисы
+  rating-service:
+    image: shahzod1709/rating-service:1.1
+    container_name: rating-service
+    restart: always
+    build: ./src/LibrarySystem.RatingSystem
+    ports:
+      - "8050:8050"
+    environment:
+      - ASPNETCORE_URLS=http://+:8050
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DATABASE=ratings
+      - USERNAME=postgres
+      - PASSWORD=postgres
+  library-service:
+    image: shahzod1709/library-service:1.1
+    container_name: library-service
+    restart: always
+    build: ./src/LibrarySystem.LibrarySystem
+    ports:
+      - "8060:8060"
+    environment:
+      - ASPNETCORE_URLS=http://+:8060
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DATABASE=libraries
+      - USERNAME=postgres
+      - PASSWORD=postgres
+  reservation-service:
+    image: shahzod1709/reservation-service:1.1
+    container_name: reservation-service
+    restart: always
+    build: ./src/LibrarySystem.ReservationSystem
+    ports:
+      - "8070:8070"
+    environment:
+      - ASPNETCORE_URLS=http://+:8070
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DATABASE=reservations
+      - USERNAME=postgres
+      - PASSWORD=postgres
+  gateway:
+    image: shahzod1709/gateway:1.1
+    container_name: gateway
+    restart: always
+    build: ./src/LibrarySystem.Gateway
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_URLS=http://+:8080
+      - RATINGS_HOST=rating-service:8050
+      - LIBRARY_HOST=library-service:8060
+      - RESERVATIONS_HOST=reservation-service:8070
+
+volumes:
+  db-data:

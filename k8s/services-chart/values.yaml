@@ -1,0 +1,31 @@
+rating:
+  service:
+    port: 8050
+    image:
+      name: shahzod1709/rsoi-rating-service
+      version: "1.0"
+    database: 
+      name: ratings
+library:
+  service:
+    port: 8060
+    image:
+      name: shahzod1709/rsoi-library-service
+      version: "1.0"
+    database: 
+      name: libraries
+reservation:
+  service:
+    port: 8070
+    image:
+      name: shahzod1709/rsoi-reservation-service
+      version: "1.0"
+    database: 
+      name: reservations
+gateway:
+  service:
+    port: 8080
+    image:
+      name: shahzod1709/rsoi-gateway
+      version: "1.0"
+    isGateway: true
