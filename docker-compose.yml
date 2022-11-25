@@ -58,7 +58,7 @@ services:
       - USERNAME=postgres
       - PASSWORD=postgres
   gateway:
-    image: shahzod1709/gateway:1.1
+    image: shahzod1709/gateway-service:1.1
     container_name: gateway
     restart: always
     build: ./src/LibrarySystem.Gateway

@@ -26,7 +26,8 @@ jobs:
         
       - name: Push images
         run: |
-          docker login -u shahzod1709 -p 
+          docker login -u shahzod1709 -p $DOCKERHUB_PASSWORD
+          docker-compose push
           
       - name: Deploy to k8s 
         run: |
