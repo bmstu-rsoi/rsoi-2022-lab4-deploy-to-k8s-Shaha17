@@ -35,7 +35,7 @@ jobs:
           kubectl config set-credentials admin --token="$KUBECTL_TOKEN"
           kubectl config set-context default --cluster=k8s --user=admin
           kubectl config use-context default
-          helm upgrade services k8s/services-chart/
+          helm install services k8s/services-chart/
           sleep 45
         
       - name: Run API Tests
