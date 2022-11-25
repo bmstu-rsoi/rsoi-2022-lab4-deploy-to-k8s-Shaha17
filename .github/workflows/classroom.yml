@@ -31,11 +31,11 @@ jobs:
           
       - name: Deploy to k8s 
         run: |
-          - kubectl config set-cluster k8s --server="$KUBE_URL" --insecure-skip-tls-verify=true
-          - kubectl config set-credentials admin --token="$KUBE_TOKEN"
-          - kubectl config set-context default --cluster=k8s --user=admin
-          - kubectl config use-context default
-          - helm install services k8s/services-chart/
+          kubectl config set-cluster k8s --server="$KUBE_URL" --insecure-skip-tls-verify=true
+          kubectl config set-credentials admin --token="$KUBE_TOKEN"
+          kubectl config set-context default --cluster=k8s --user=admin
+          kubectl config use-context default
+          helm install services k8s/services-chart/
         
       - name: Run API Tests
         uses: matt-ball/newman-action@master
