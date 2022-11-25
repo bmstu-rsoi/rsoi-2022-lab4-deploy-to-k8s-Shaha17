@@ -36,6 +36,7 @@ jobs:
           kubectl config set-context default --cluster=k8s --user=admin
           kubectl config use-context default
           helm install services k8s/services-chart/
+          sleep 10
         
       - name: Run API Tests
         uses: matt-ball/newman-action@master
